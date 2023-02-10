@@ -2,22 +2,25 @@ package com.louisa.outofhafermilk;
 
 import com.louisa.logging.Logger;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.time.Instant;
 import java.util.*;
+
+import static com.louisa.outofhafermilk.ProduceIngredients.produceIngredients;
+import static com.louisa.outofhafermilk.ReadFile.readFile;
 
 public class Main {
 
 
     public static void main(String[] args){
 
-        Pantry testPantry = new Pantry();
+        String defaultPantryFilePath = args[0];
+        Pantry testPantry = new Pantry(defaultPantryFilePath);
+        Logger.logNow(testPantry.toString());
+        Logger.logLater(testPantry.toString());
+        Logger.logNow(testPantry.getInventory().get(0).toString());
+
+
     }
 
 

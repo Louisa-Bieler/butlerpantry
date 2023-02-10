@@ -4,17 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18f8e679-9dc7-421a-9432-60429274fc0c" name="Changes" comment="work until now">
-      <change afterPath="$PROJECT_DIR$/Wed Feb 01 07:48:19 EST 2023" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wed Feb 01 07:52:04 EST 2023" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myPantry.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="18f8e679-9dc7-421a-9432-60429274fc0c" name="Changes" comment="work until thursday">
+      <change afterPath="$PROJECT_DIR$/Fri Feb 10 05:46:58 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fri Feb 10 05:58:02 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fri Feb 10 06:04:14 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fri Feb 10 06:04:38 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Thu Feb 09 11:42:42 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Thu Feb 09 11:44:53 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wed Feb 08 16:17:32 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wed Feb 08 16:17:48 CET 2023" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/IngredientFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProducePantryListFromFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ReadFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/UpdatePantry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/test/TestAddAmount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/louisa/test/TestStringFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/outofhafermilk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/outofhafermilk.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/MyPantry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +37,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -58,6 +75,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -66,6 +87,24 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.louisa.outofhafermilk" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CommandLinePantry" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.louisa.outofhafermilk.Main" />
+      <module name="outofhafermilk" />
+      <option name="PROGRAM_PARAMETERS" value="myPantry.csv" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -89,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675175650317</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="work until thursday">
+      <created>1675346307399</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675346307399</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -109,7 +155,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="work until now" />
-    <option name="LAST_COMMIT_MESSAGE" value="work until now" />
+    <MESSAGE value="work until thursday" />
+    <option name="LAST_COMMIT_MESSAGE" value="work until thursday" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -118,27 +165,12 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/outofhafermilk$Main.ic" NAME="Main Coverage Results" MODIFIED="1675862435923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.louisa.outofhafermilk.*</FILTER>
+    </SUITE>
   </component>
 </project>

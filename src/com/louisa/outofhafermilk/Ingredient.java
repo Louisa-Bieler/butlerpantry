@@ -36,4 +36,13 @@ public class Ingredient {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString(){
+        String thisName = this.name.format("%s, ", this.name);
+        String thisUnit = this.unit.format("%s, ", this.unit);
+        String thisAmount = String.valueOf(this.amount).format("%s", String.valueOf(this.amount));
+        String thisIngredient = thisName + thisUnit + thisAmount;
+       return thisIngredient;
+    }
 }

@@ -21,24 +21,26 @@ public class Logger {
         String fileName = Date.from(Instant.now()).toString();
         File logStash = new File(fileName);
 
-            try {
+            try(FileWriter fw = new FileWriter(logStash)) {
 
                 // attach a file to FileWriter
-                FileWriter fw = new FileWriter(logStash);
+
 
                     // read each character from string and write
                     // into FileWriter
                     for (int i = 0; i < message.length(); i++)
                         fw.write(message.charAt(i));
 
-                    System.out.println("Successfully written");
+                    System.out.println("Logfile successfully written");
 
                     // close the file
-                    fw.close();
+
                 }
                 catch (Exception e) {
                     e.getStackTrace();
                 }
+
             }
+
         }
 

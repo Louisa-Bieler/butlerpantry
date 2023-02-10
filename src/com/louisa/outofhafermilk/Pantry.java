@@ -2,39 +2,53 @@ package com.louisa.outofhafermilk;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.*;
 
+import static com.louisa.outofhafermilk.ReadFile.readFile;
+
+
+
 public class Pantry {
+    public String defaultPantryFilePath;
+    private File testFile;
+    private ArrayList<Ingredient> inventory;
 
-    private ArrayList<Ingredient> inventory = new ArrayList<>();
 
-    public Pantry(){
-        File myPantry = new File("myPantry.csv");
-        ArrayList<Ingredient> pantry = new ArrayList<Ingredient>();
-        try (Scanner scanner = new Scanner(myPantry).useDelimiter(",")) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] lineParts = line.split(",");
-                double amounts = Double.parseDouble(lineParts[2]);
-                pantry.add(new Ingredient(lineParts[0], lineParts[1], amounts));
-
-            }
-            System.out.println(pantry.toString());
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        }
-
+    public Pantry(String defaultPantryFilePath) {
+        this.defaultPantryFilePath = defaultPantryFilePath;
+        this.testFile  = readFile(defaultPantryFilePath);
+        this.inventory = com.louisa.outofhafermilk.ProducePantryListFromFile.produceIngredients(testFile);
+    }
 
     public ArrayList<Ingredient> getInventory() {
         return inventory;
     }
 
+
     public void setInventory(ArrayList<Ingredient> inventory) {
-        int length = this.inventory.stream().count();
-        int count;
-        for (count=0, count<length, count++){
-            inventory;
-        }
+        this.inventory = inventory;
     }
-}
+
+    public Ingredient getIngredient(int indexValue){
+        return this.inventory.get(indexValue);
+    }
+
+    @Override
+    public String toString() {
+        ArrayList<String> inventoryString = new ArrayList<>();
+        int count = this.inventory.size();
+        int i = 0;
+        while (i < count) {
+            inventoryString.add(this.getIngredient(i).toString());
+            i++;
+        }
+        return inventoryString.toString();
+    }
+
+
+    }
+
+
+
+
