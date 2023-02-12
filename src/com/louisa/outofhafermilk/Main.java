@@ -18,8 +18,7 @@ public class Main {
         Pantry testPantry = new Pantry(defaultPantryFilePath);
         Logger.logNow(testPantry.toString());
         Logger.logLater(testPantry.toString());
-        Logger.logLater(testPantry.toString());
-        Logger.logNow(testPantry.getInventory().get(0).toString());
+
 
 
     }

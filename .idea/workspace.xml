@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="blahblah">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="flibertygibbet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientArrayListFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientHashMapFromFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientHashMapFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientHashMapFromFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/test/TestAddAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/test/TestAddAmount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +42,14 @@
       <option name="presentableId" value="Default" />
       <updated>1676178654724</updated>
     </task>
+    <task id="LOCAL-00001" summary="flibertygibbet">
+      <created>1676227279537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676227279537</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -59,6 +65,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="blahblah" />
-    <option name="LAST_COMMIT_MESSAGE" value="blahblah" />
+    <MESSAGE value="flibertygibbet" />
+    <option name="LAST_COMMIT_MESSAGE" value="flibertygibbet" />
   </component>
 </project>

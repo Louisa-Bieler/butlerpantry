@@ -2,11 +2,9 @@ package com.louisa.outofhafermilk;
 
 import java.io.File;
 import java.lang.reflect.Array;
-import java.util.HashMap;
+import java.util.*;
 import java.lang.Double;
 import java.lang.String;
-import java.util.ArrayList;
-import java.util.Set;
 
 import static com.louisa.outofhafermilk.ReadFile.readFile;
 
@@ -37,33 +35,23 @@ public class Pantry {
 
     @Override
     public String toString() {
-        ArrayList<String> inventoryString = new ArrayList<>();
-        int count = this.inventory.size();
-        int i = 0;
-        while (i < count) {
-            inventoryString.add(this.getIngredient(i).toString());
-            i++;
-        }
-        return inventoryString.toString();
-    }
+        return this.inventory.keySet().toString();    }
  
     public Ingredient getIngredient(String name) {
         return this.inventory.get(name);
     }
 
-    public static void updatePantryManual(HashMap<String, Ingredient> entries) {
-        ArrayList<String> keys = (ArrayList<String>) entries.keySet();
-        for (int i = 0; i<keys.size(); i++){
-            String iterationKey = keys.get(i);
-            if (this.inventory.containsKey(iterationKey){
-                Ingredient toUpdate = this.inventory.get(iterationKey);
-                ArrayList<String> unitToUpdateKeys = (ArrayList<String>)
-                        toUpdate.getType().keySet()
-                Ingredient upDated;
-                for (int i = 0; i < entries.get(iterationKey).getAmount().size(); i++){
-
-                } toUpdate.setAmount(entries.get(keys.get(i)).getType().);
-                this.inventory.put(keys.get(i), entries.get(keys.get(i));
+    public void updatePantryWithAnotherPantryOrInventory(HashMap<String, Ingredient> entries) {
+        HashMap<String, Ingredient> currentPantry = this.inventory;
+        List<String> ingredientsToUpdate = entries.keySet().stream().toList();
+        int numberOfIngredientsToUpdate = entries.size();
+        for (int i = 0; i < numberOfIngredientsToUpdate; i ++){
+            String iterationIngredientName = ingredientsToUpdate.get(i);
+            if (currentPantry.containsKey(iterationIngredientName)){
+                HashMap<String, Double> updatedAmount = entries.get(iterationIngredientName).getType();
+                currentPantry.get(iterationIngredientName).setAmountFromExistingIngredients(updatedAmount);}
+            else {
+                this.inventory.put(iterationIngredientName, entries.get(iterationIngredientName));
             }
         }
          

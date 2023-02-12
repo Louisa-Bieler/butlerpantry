@@ -5,8 +5,8 @@ import com.louisa.outofhafermilk.Ingredient;
 public class TestAddAmount {
 
     //TODO: IS A DOUBLE
-    public Ingredient addAmount(double additionalAmount){
-    }
+    //public Ingredient addAmount(double additionalAmount){
+    //}
 
     //TODO: IS POSITIVE
 

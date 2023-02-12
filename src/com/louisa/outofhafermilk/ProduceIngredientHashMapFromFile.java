@@ -22,7 +22,7 @@ public class ProduceIngredientHashMapFromFile {
                 String unit = lineParts[1];
                 Double amount = Double.parseDouble(lineParts[2]);
                 if (myPantry.containsKey(name)) {
-                    myPantry.get(name).setAmount(unit, amount);
+                    myPantry.get(name).setAmountFromScratch(unit, amount);
                 } else {
                     myPantry.put(name, new Ingredient(name, unit, amount));
                 }
