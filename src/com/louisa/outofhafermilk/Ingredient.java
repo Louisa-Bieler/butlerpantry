@@ -1,18 +1,22 @@
 package com.louisa.outofhafermilk;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
 public class Ingredient {
     private String name;
-    private String unit;
-    private double amount;
+    private ArrayList<String> unit;
+
+    private HashMap<String, Double> type;
 
 
     public Ingredient(String name, String unit, Double amount){
         this.name = name;
-        this.unit = unit;
-        //TODO logic about standard units
-
-        this.amount = amount;
+        this.unit.add(unit);
+        this.type.put(unit, amount);
     }
 
     public String getName() {
@@ -23,29 +27,30 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getUnit() {
-        return unit;
+    public HashMap<String, Double> getAmount() {
+        return type;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setAmount(String unit, Double amount) {
+        if (this.unit.contains(unit)) {
+            Double newValue = this.type.get(unit) + amount;
+            type.replace(unit, newValue);
+        } else {
+            this.type.put(unit, amount);
+        }
+
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
+        public HashMap<String, Double> getType() {
+            return type;
     }
 
     @Override
-    public String toString(){
-        String thisName = this.name.format("%s, ", this.name);
-        String thisUnit = this.unit.format("%s, ", this.unit);
-        String thisAmount = String.valueOf(this.amount).format("%s", String.valueOf(this.amount));
-        String thisIngredient = thisName + thisUnit + thisAmount;
-       return thisIngredient;
-d
-    }
-}
+    public String toString() {
+        List<String> stringyIngredient = new ArrayList<>();
+        for (int i = 0; i < this.unit.size(); i++) {
+            stringyIngredient.add(this.name + ", " + this.unit.get(i) + ", " + this.type.get(this.unit.get(i)));
+        }
+        return stringyIngredient.toString();
+    }}
+

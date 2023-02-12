@@ -4,137 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18f8e679-9dc7-421a-9432-60429274fc0c" name="Changes" comment="work until friday 10 feb">
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="blahblah">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/logging/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/IngredientMatcher.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProducePantryListFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientArrayListFromFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/UpdatePantry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientArrayListFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/ProduceIngredientHashMapFromFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit4 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectId" id="2L2X72yqPxevmt4QCKcttXbhBkW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2LcmH71FKjjIuLJgFbjXC1uj0m0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
-    "create.test.in.the.same.root": "true",
-    "settings.editor.selected.configurable": "Errors"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
-    ]
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.louisa.outofhafermilk" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="CommandLinePantry" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.louisa.outofhafermilk.Main" />
-      <module name="outofhafermilk" />
-      <option name="PROGRAM_PARAMETERS" value="myPantry.csv" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="18f8e679-9dc7-421a-9432-60429274fc0c" name="Changes" comment="" />
-      <created>1675069982478</created>
+      <changelist id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="blahblah" />
+      <created>1676178654724</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1675069982478</updated>
+      <updated>1676178654724</updated>
     </task>
-    <task id="LOCAL-00001" summary="work until now">
-      <created>1675175510870</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1675175510870</updated>
-    </task>
-    <task id="LOCAL-00002" summary="work until now">
-      <created>1675175650317</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1675175650317</updated>
-    </task>
-    <task id="LOCAL-00003" summary="work until thursday">
-      <created>1675346307399</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1675346307399</updated>
-    </task>
-    <task id="LOCAL-00004" summary="work until friday 10 feb">
-      <created>1676007625236</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676007625236</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -148,29 +58,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="work until now" />
-    <MESSAGE value="work until thursday" />
-    <MESSAGE value="work until friday 10 feb" />
-    <option name="LAST_COMMIT_MESSAGE" value="work until friday 10 feb" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" log-message="true" log-stack="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/outofhafermilk$Main.ic" NAME="Main Coverage Results" MODIFIED="1675862435923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.louisa.outofhafermilk.*</FILTER>
-    </SUITE>
+    <MESSAGE value="blahblah" />
+    <option name="LAST_COMMIT_MESSAGE" value="blahblah" />
   </component>
 </project>

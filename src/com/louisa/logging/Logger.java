@@ -16,17 +16,15 @@ public class Logger {
         try {
             if(flag == now){
                 Logger.logNow(message);
-                break;
             }
             if(flag == later){
                 Logger.logLater(message);
-                break;
             }}
             catch (Exception e){
                 System.out.println("Please run main with command line configuration of flag 'n' for a console log or 'l' for a log File");
             }
         }
-    }
+
 
     public static void logNow(String message){
         System.out.println(message);
@@ -34,7 +32,7 @@ public class Logger {
 
     public static void logLater(String message){
         // Java program to create a text File using FileWriter
-        String fileName = Date.from(Instant.now()).toString();
+        String fileName = Date.from(Instant.now()).toString().replace( ':','_');
         File logStash = new File(fileName);
 
             try(FileWriter fw = new FileWriter(logStash)) {
