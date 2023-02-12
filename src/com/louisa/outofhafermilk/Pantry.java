@@ -1,9 +1,10 @@
 package com.louisa.outofhafermilk;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.HashMap;
+import java.lang.Double;
+import java.lang.String;
+import java.util.ArrayList;
 
 import static com.louisa.outofhafermilk.ReadFile.readFile;
 
@@ -12,26 +13,29 @@ import static com.louisa.outofhafermilk.ReadFile.readFile;
 public class Pantry {
     public String defaultPantryFilePath;
     private File testFile;
-    private ArrayList<Ingredient> inventory;
+    private HashMap<String, Double> inventory;
 
 
     public Pantry(String defaultPantryFilePath) {
         this.defaultPantryFilePath = defaultPantryFilePath;
         this.testFile  = readFile(defaultPantryFilePath);
-        this.inventory = com.louisa.outofhafermilk.ProducePantryListFromFile.produceIngredients(testFile);
+        this.inventory = ProduceIngredientArrayListFromFile.produceIngredients(testFile);
     }
 
-    public ArrayList<Ingredient> getInventory() {
+    public java.util.HashMap<java.lang.String, java.lang.Double> getInventory() {
         return inventory;
     }
 
 
-    public void setInventory(ArrayList<Ingredient> inventory) {
+    public void setInventory(HashMap<String, Double> inventory) {
         this.inventory = inventory;
     }
 
-    public Ingredient getIngredient(int indexValue){
-        return this.inventory.get(indexValue);
+    public Ingredient getIngredient(String key){
+         Set ingredientValue = this.inventory.entrySet();
+
+
+
     }
 
     @Override
@@ -47,7 +51,14 @@ public class Pantry {
     }
 
 
+    public static interface IngredientMatcher {
+
+        public int I
     }
+
+    public static class UpdatePantry {
+    }
+}
 
 
 

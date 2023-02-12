@@ -10,6 +10,8 @@ public class Ingredient {
     public Ingredient(String name, String unit, Double amount){
         this.name = name;
         this.unit = unit;
+        //TODO logic about standard units
+
         this.amount = amount;
     }
 
@@ -44,5 +46,6 @@ public class Ingredient {
         String thisAmount = String.valueOf(this.amount).format("%s", String.valueOf(this.amount));
         String thisIngredient = thisName + thisUnit + thisAmount;
        return thisIngredient;
+d
     }
 }

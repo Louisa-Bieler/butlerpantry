@@ -9,8 +9,24 @@ import java.util.Date;
 
 public class Logger {
 
-    //TODO function that takes a message and writes it to terminal, file, or both
-    //function lives here and is called in main
+    public static void logNowOrLater(String message, char flag){
+        char now = 'n';
+        char later = 'l';
+
+        try {
+            if(flag == now){
+                Logger.logNow(message);
+                break;
+            }
+            if(flag == later){
+                Logger.logLater(message);
+                break;
+            }}
+            catch (Exception e){
+                System.out.println("Please run main with command line configuration of flag 'n' for a console log or 'l' for a log File");
+            }
+        }
+    }
 
     public static void logNow(String message){
         System.out.println(message);
