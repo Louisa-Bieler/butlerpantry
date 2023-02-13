@@ -24,6 +24,10 @@ public class Ingredient {
         return name;
     }
 
+    public void addUnits(String newUnit) {
+        this.units.add(newUnit);
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -41,6 +45,7 @@ public class Ingredient {
             Double newValue = this.type.get(unit) + amount;
             this.type.replace(unit, newValue);
         } else {
+            this.addUnits(unit);
             this.type.put(unit, amount);
         }
 
@@ -50,11 +55,11 @@ public class Ingredient {
         int numberOfUnitsToUpdate = updatingIngredientType.size();
         for (int i = 0; i < numberOfUnitsToUpdate; i++){
             String iterationUnitName = unitNames.get(i);
-            if (this.type.containsKey(iterationUnitName)){
-                Double newValue = this.type.get(iterationUnitName) + updatingIngredientType.get(iterationUnitName);
-                this.type.replace(iterationUnitName, newValue);
+            if (this.getAmount().containsKey(iterationUnitName)){
+                Double newValue = this.getAmount().get(iterationUnitName) + updatingIngredientType.get(iterationUnitName);
+                this.getAmount().replace(iterationUnitName, newValue);
             } else {
-                this.type.put(iterationUnitName, updatingIngredientType.get(iterationUnitName));
+                this.setAmountFromScratch(iterationUnitName, updatingIngredientType.get(iterationUnitName));
             }
             }}
         public HashMap<String, Double> getType() {
