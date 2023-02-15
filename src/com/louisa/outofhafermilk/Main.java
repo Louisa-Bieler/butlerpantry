@@ -2,14 +2,6 @@ package com.louisa.outofhafermilk;
 
 import com.louisa.logging.Logger;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.util.*;
-
-
-import static com.louisa.outofhafermilk.ReadFile.readFile;
-
 public class Main {
 
 
@@ -20,9 +12,10 @@ public class Main {
         Pantry testPantry = new Pantry(defaultPantryFilePath);
         Logger.logNow(testPantry.toString());
         Pantry shoppingTrip = new Pantry(shoppingTripFilePath);
-        testPantry.updatePantryWithAnotherPantryOrInventory(shoppingTrip.getInventory());
+        testPantry.updatePantry(shoppingTrip.getInventory());
         Logger.logNow(testPantry.toString());
-        Logger.logLater(testPantry.toString());
+        WriteFile.createUpdatedCSV(testPantry, "updatedPantry.csv");
+
 
 
         }
