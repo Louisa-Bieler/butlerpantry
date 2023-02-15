@@ -1,5 +1,7 @@
 package com.louisa.outofhafermilk;
 
+import com.louisa.logging.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +16,17 @@ public class Ingredient {
 
 
     public Ingredient(String name, String unit, Double amount){
+        this.name = name;
+        this.units.add(unit);
+        this.unitAmount.put(unit, amount);
+    }
+
+    public Ingredient(String message) {
+        String line = message;
+        String[] lineParts = line.split(",");
+        String name = lineParts[0];
+        String unit = lineParts[1];
+        Double amount = Double.parseDouble(lineParts[2]);
         this.name = name;
         this.units.add(unit);
         this.unitAmount.put(unit, amount);
@@ -69,25 +82,34 @@ public class Ingredient {
         int numberOfUnitsToUpdate = recipeIngredientUnitAmount.size();
         String goShopping = null;
         String dontHave = null;
+        String noMore = null;
         for (int i = 0; i < numberOfUnitsToUpdate; i++) {
             String iterationUnitName = unitNames.get(i);
             if (this.getUnitAmount().containsKey(iterationUnitName)) {
                 Double newValue = this.getAmount(iterationUnitName) - recipeIngredientUnitAmount.get(iterationUnitName);
-                if (newValue >= 0) {
+                if (newValue > 0) {
                     this.getUnitAmount().replace(iterationUnitName, newValue);
-                    String message = "Success!";
-                    return message;
-                } else {
+                    String success = "Success!";
+                    Logger.logNow(success);
+                } else if (newValue == 0) {
+                    this.unitAmount.remove(iterationUnitName);
+                    if (unitAmount.isEmpty()) {
+                        //TODO
+                    }
+                    }
+                    noMore = this.name + "," + this.
+                } else if (newValue < 0){
                     Double toBuy = newValue * -1;
                     goShopping = this.name + "," + iterationUnitName + "," + toBuy;
-                    continue;
                 }
             } else {
                 dontHave = this.name + "," + iterationUnitName + "," + recipeIngredientUnitAmount.get(iterationUnitName);
-                continue;
-            }}
+            }
+        }
             if (goShopping != null) {
                 return goShopping;
+            } else if (noMore != null) {
+                return noMore;
             } else {
                 return dontHave;
             }
