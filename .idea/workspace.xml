@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="not yet working but a lot of progoress">
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ffiday" />
+        <entry key="$PROJECT_DIR$" value="Wed_15_Feb" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676440953154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="not yet working but a lot of progoress">
+      <created>1676496606667</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676496606667</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -52,6 +52,8 @@ public class Ingredient {
         return units;
     }
 
+    public void removeUnit(String unit) { this.units.remove(unit); this.unitAmount.remove(unit, 0); }
+
     public void setAmountFromScratch(String unit, Double amount) {
         if (this.units.contains(unit)) {
             Double newValue = this.unitAmount.get(unit) + amount;
@@ -93,11 +95,7 @@ public class Ingredient {
                     Logger.logNow(success);
                 } else if (newValue == 0) {
                     this.unitAmount.remove(iterationUnitName);
-                    if (unitAmount.isEmpty()) {
-                        //TODO
-                    }
-                    }
-                    noMore = this.name + "," + this.
+                    noMore = iterationUnitName;
                 } else if (newValue < 0){
                     Double toBuy = newValue * -1;
                     goShopping = this.name + "," + iterationUnitName + "," + toBuy;

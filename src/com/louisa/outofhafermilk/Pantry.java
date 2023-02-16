@@ -111,12 +111,16 @@ public class Pantry {
                 if (message.contains("Success")) {
                     this.inventory.replace(iterIngredient.getName(), iterIngredient);
                     shoppingList.removeEntireIngredient(iterationIngredientName);
-                } else  if (message.){
+                } else if (iterIngredient.getUnitAmount().containsKey(message)) {
+                    iterIngredient.removeUnit(message);
+                    this.replaceIngredient(iterIngredient);
+                } else {
                     Ingredient tempIngredient = new Ingredient(message);
                     shoppingList.inventory.replace(iterationIngredientName, tempIngredient);
+                    }
                 }
             }
-        }
+
         Logger.logNow(shoppingList.toString());
         return shoppingList;
     }
