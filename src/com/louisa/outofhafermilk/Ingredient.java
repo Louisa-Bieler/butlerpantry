@@ -93,6 +93,7 @@ public class Ingredient {
                     this.getUnitAmount().replace(iterationUnitName, newValue);
                     String success = "Success!";
                     Logger.logNow(success);
+                    return success;
                 } else if (newValue == 0) {
                     this.unitAmount.remove(iterationUnitName);
                     noMore = iterationUnitName;
