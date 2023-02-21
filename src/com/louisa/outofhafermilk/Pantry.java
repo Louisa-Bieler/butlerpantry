@@ -2,6 +2,7 @@ package com.louisa.outofhafermilk;
 
 import com.louisa.logging.Logger;
 
+
 import java.io.File;
 import java.util.*;
 import java.lang.Double;
@@ -9,20 +10,23 @@ import java.lang.String;
 import java.util.stream.Collectors;
 
 import static com.louisa.outofhafermilk.ReadFile.readFile;
-
+import static java.util.Spliterators.iterator;
 
 
 public class Pantry {
     private HashMap<String, Ingredient> inventory;
 
 
-    public Pantry(String defaultPantryFilePath) {
-        File testFile = readFile(defaultPantryFilePath);
-        this.inventory = ProduceIngredientHashMapFromFile.produceIngredients(testFile);
+    public Pantry(File pantryFile) {
+        this.inventory = PantryFactory.producePantryFromFile(pantryFile).inventory;
     }
 
     public Pantry(HashMap<String, Ingredient> inventory) {
         this.inventory = inventory;
+    }
+
+    public Pantry() {
+        this.inventory = new HashMap<String, Ingredient>();
     }
 
     public HashMap<String, Ingredient> getInventory() {
@@ -35,20 +39,12 @@ public class Pantry {
     }
 
     public void setIngredient(String name, String unit, Double amount) {
-        if (this.inventory.keySet().contains(name)) {
-            if (this.inventory.get(name).getUnits().contains(unit)) {
-                Double newValue = this.inventory.get(name).getUnitAmount().get(unit) + amount;
-                Ingredient updatedIngredientUnitAmount = new Ingredient(name, unit, newValue);
-                this.inventory.replace(name, updatedIngredientUnitAmount);
-            } else {
-                Ingredient temp = this.inventory.get(name);
-                temp.addUnits(unit);
-                temp.setAmountFromScratch(unit, amount);
-                this.inventory.replace(name, temp);
-            }
+        if (this.inventory.containsKey(name + unit)) {
+            Double newValue = this.inventory.get(name).getUnitAmount().get(unit) + amount;
+            Ingredient updatedIngredient = new Ingredient(name, unit, newValue);
+            this.inventory.replace(name + unit, updatedIngredient);
         } else {
-            Ingredient newIngredient = new Ingredient(name, unit, amount);
-            this.inventory.put(name, newIngredient);
+            this.inventory.put(name + unit, IngredientFactory.returnIngredient((name+ "," + unit + "," + amount.toString())));
         }
     }
 
@@ -59,71 +55,68 @@ public class Pantry {
     public void replaceIngredient(Ingredient replacement) {
         this.inventory.replace(replacement.getName(),replacement);
     }
-
-
     @Override
     public String toString() {
-        Iterator<String> stringIterator = this.inventory.keySet().iterator();
-        ArrayList<String> stringyPantry = new ArrayList<>();
-        while (stringIterator.hasNext()) {
-            String iterationName = stringIterator.next();
-            Iterator<String> iterationUnits = this.inventory.get(iterationName).getUnits().iterator();
-            while (iterationUnits.hasNext()) {
-                String iterationUnit = iterationUnits.next();
-                String iterationAmount = String.valueOf(this.inventory.get(iterationName).getUnitAmount().get(iterationUnit));
-                stringyPantry.add(iterationName + "," + iterationUnit + "," + iterationAmount);
-            }
+        Iterator<Ingredient> ingredientIterator = this.inventory.values().iterator();
+        StringBuilder sb = new StringBuilder();
+        while (ingredientIterator.hasNext()) {
+            sb.append(ingredientIterator.next().toString());
         }
-        return stringyPantry.toString().replaceAll("\\[", "").replaceAll("\\]", "");
+        return sb.toString();
     }
 
     public Ingredient getIngredient(String name) {
         return this.inventory.get(name);
     }
 
-    public void updatePantry(HashMap<String, Ingredient> entries) {
-        HashMap<String, Ingredient> currentPantry = this.getInventory();
-        List<String> ingredientsToUpdate = entries.keySet().stream().collect(Collectors.toList());
-        int numberOfIngredientsToUpdate = entries.size();
+    public void addShopping(Pantry entries){
+        entries.getInventory().forEach(
+                (key, value) ->
+                        this.inventory.merge(
+                                key, value, (value1, value2) ->
+                                { value1.addAmountFromShopping(value2.getUnitAmount());
+                                    return value1;
+                                }
+                                )
+        );
+    }
+
+
+    /*public Pantry updatePantryWithRecipe(Pantry recipe) {
+        this.inventory.forEach(
+                , ());HashMap<String, Ingredient> currentPantry = this.getInventory();
+        List<String> ingredientsToUpdate = recipe.inventory.keySet().stream().collect(Collectors.toList());
+        Pantry shoppingList = new Pantry(recipe.getInventory());
+        int numberOfIngredientsToUpdate = ingredientsToUpdate.size();
         for (int i = 0; i < numberOfIngredientsToUpdate; i++) {
             String iterationIngredientName = ingredientsToUpdate.get(i);
+            String recipeUnitName = recipe.getIngredient(iterationIngredientName).getUnits().get(0);
             if (currentPantry.containsKey(iterationIngredientName)) {
-                Ingredient temp = this.inventory.get(iterationIngredientName);
-                temp.setAmountFromExistingIngredients(entries.get(iterationIngredientName).getUnitAmount());
-                this.inventory.replace(temp.getName(), temp);
+                Ingredient updatedIngredient = this.getIngredient(iterationIngredientName);
+                updatedIngredient.setAmountFromRecipe(recipe.getIngredient(iterationIngredientName));
+                if (updatedIngredient.getAmount(recipeUnitName) == 0){
+                    if (this.getIngredient(iterationIngredientName).getUnits().size() > 1){
+                        this.getIngredient(iterationIngredientName).removeUnit(recipeUnitName);
+                    } else {
+                        this.removeEntireIngredient(iterationIngredientName);
+                    }
+                    shoppingList.replaceIngredient(updatedIngredient);
+                } else if (updatedIngredient.getAmount(recipeUnitName) > 0) {
+                    this.replaceIngredient(updatedIngredient);
+                    shoppingList.removeEntireIngredient(iterationIngredientName);
+                } else {
+                    shoppingList.replaceIngredient(updatedIngredient);
+                }
             } else {
-                this.inventory.put(iterationIngredientName, entries.get(iterationIngredientName));
+                Ingredient shoppingIngredient = recipe.getIngredient(iterationIngredientName);
+                Double newValue = shoppingIngredient.getAmount(recipeUnitName) * -1;
+                shoppingIngredient.setAmountFromScratch(recipeUnitName, newValue);
+                shoppingList.replaceIngredient(shoppingIngredient);
             }
         }
-
-    }
-
-    public Pantry updatePantryWithRecipe(HashMap<String, Ingredient> recipe) {
-        HashMap<String, Ingredient> currentPantry = this.getInventory();
-        List<String> ingredientsToUpdate = recipe.keySet().stream().collect(Collectors.toList());
-        Pantry shoppingList = new Pantry(recipe);
-        int numberOfIngredientsToUpdate = recipe.size();
-        for (int i = 0; i < numberOfIngredientsToUpdate; i++) {
-            String iterationIngredientName = ingredientsToUpdate.get(i);
-            if (currentPantry.containsKey(iterationIngredientName)) {
-                Ingredient iterIngredient = currentPantry.get(iterationIngredientName);
-                String message = iterIngredient.setAmountFromRecipe(recipe.get(iterationIngredientName).getUnitAmount());
-                if (message.contains("Success")) {
-                    this.inventory.replace(iterIngredient.getName(), iterIngredient);
-                    shoppingList.removeEntireIngredient(iterationIngredientName);
-                } else if (iterIngredient.getUnitAmount().containsKey(message)) {
-                    iterIngredient.removeUnit(message);
-                    this.replaceIngredient(iterIngredient);
-                } else {
-                    Ingredient tempIngredient = new Ingredient(message);
-                    shoppingList.inventory.replace(iterationIngredientName, tempIngredient);
-                    }
-                }
-            }
-
         Logger.logNow(shoppingList.toString());
         return shoppingList;
-    }
+    }*/
 }
 
 

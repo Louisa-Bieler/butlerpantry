@@ -1,5 +1,7 @@
 package com.louisa.outofhafermilk;
 
+import com.louisa.logging.Logger;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class WriteFile {
             for (int i = 0; i < message.length(); i++)
                 fw.write(message.charAt(i));
         } catch (IOException e) {
+            Logger.logLater(e.getMessage());
             throw new RuntimeException(e);
         }
 
