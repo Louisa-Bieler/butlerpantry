@@ -18,9 +18,9 @@ public class Main {
         File testFile = readFile(defaultPantryFilePath);
         File shoppingTripFile = readFile(shoppingTripFilePath);
 
-        Pantry testPantry = PantryFactory.producePantryFromFile(testFile);
+        Pantry testPantry = Pantry.PantryFactory.producePantryFromFile(testFile);
         Logger.logNow((testPantry.toString()));
-        Pantry shoppingTrip = PantryFactory.producePantryFromFile(shoppingTripFile);
+        Pantry shoppingTrip = Pantry.PantryFactory.producePantryFromFile(shoppingTripFile);
 
         testPantry.addShopping(shoppingTrip);
         Logger.logNow(testPantry.toString());

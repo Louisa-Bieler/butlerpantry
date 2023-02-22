@@ -1,16 +1,12 @@
 package com.louisa.outofhafermilk;
 
-import com.louisa.logging.Logger;
 
+import com.louisa.logging.Logger;
 
 import java.io.File;
 import java.util.*;
 import java.lang.Double;
 import java.lang.String;
-import java.util.stream.Collectors;
-
-import static com.louisa.outofhafermilk.ReadFile.readFile;
-import static java.util.Spliterators.iterator;
 
 
 public class Pantry {
@@ -18,12 +14,14 @@ public class Pantry {
 
 
     public Pantry(File pantryFile) {
-        this.inventory = PantryFactory.producePantryFromFile(pantryFile).inventory;
+        Pantry newPantry = PantryFactory.producePantryFromFile(pantryFile);
+        this.inventory = newPantry.inventory;
     }
 
     public Pantry(HashMap<String, Ingredient> inventory) {
         this.inventory = inventory;
     }
+
 
     public Pantry() {
         this.inventory = new HashMap<String, Ingredient>();
@@ -33,28 +31,35 @@ public class Pantry {
         return inventory;
     }
 
-
     public void setInventory(HashMap<String, Ingredient> inventory) {
         this.inventory = inventory;
     }
 
-    public void setIngredient(String name, String unit, Double amount) {
-        if (this.inventory.containsKey(name + unit)) {
-            Double newValue = this.inventory.get(name).getUnitAmount().get(unit) + amount;
-            Ingredient updatedIngredient = new Ingredient(name, unit, newValue);
-            this.inventory.replace(name + unit, updatedIngredient);
+    public void setIngredientFromString(String name, String unit, Double amount) {
+        if (this.inventory.containsKey(name)) {
+            this.inventory.get(name).setAmountFromScratch(unit, amount);
         } else {
-            this.inventory.put(name + unit, IngredientFactory.returnIngredient((name+ "," + unit + "," + amount.toString())));
+            this.inventory.put(name, Ingredient.IngredientFactory.returnIngredient((name + "," + unit + "," + amount.toString())));
         }
     }
+
+    public void setIngredientFromIngredient(Ingredient ingredientToAdd) {
+        if (this.inventory.containsKey(ingredientToAdd.getName())) {
+            this.inventory.get(ingredientToAdd.getName()).addAmountFromShopping(ingredientToAdd.getUnitAmount());
+        } else {
+            this.inventory.put(ingredientToAdd.getName(), ingredientToAdd);
+        }
+    }
+
 
     public void removeEntireIngredient(String name) {
         this.inventory.remove(name);
     }
 
     public void replaceIngredient(Ingredient replacement) {
-        this.inventory.replace(replacement.getName(),replacement);
+        this.inventory.replace(replacement.getName(), replacement);
     }
+
     @Override
     public String toString() {
         Iterator<Ingredient> ingredientIterator = this.inventory.values().iterator();
@@ -69,15 +74,16 @@ public class Pantry {
         return this.inventory.get(name);
     }
 
-    public void addShopping(Pantry entries){
+    public void addShopping(Pantry entries) {
         entries.getInventory().forEach(
                 (key, value) ->
                         this.inventory.merge(
                                 key, value, (value1, value2) ->
-                                { value1.addAmountFromShopping(value2.getUnitAmount());
+                                {
+                                    value1.addAmountFromShopping(value2.getUnitAmount());
                                     return value1;
                                 }
-                                )
+                        )
         );
     }
 
@@ -117,7 +123,27 @@ public class Pantry {
         Logger.logNow(shoppingList.toString());
         return shoppingList;
     }*/
+
+    public static class PantryFactory {
+
+        public static Pantry producePantryFromFile(File defaultPantryFile) {
+            Pantry newPantry = new Pantry();
+            try (Scanner scanner = new Scanner(defaultPantryFile).useDelimiter(",")) {
+                while (scanner.hasNextLine()) {
+                    Ingredient iterIngredient = Ingredient.IngredientFactory.returnIngredient(scanner.nextLine());
+                    newPantry.setIngredientFromIngredient(iterIngredient);
+
+                }
+                return newPantry;
+            } catch (Exception e) {
+                Logger.logLater(e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
+
+
 
 
 

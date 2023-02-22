@@ -28,7 +28,6 @@ public class WriteFile {
                 fw.write(message.charAt(i));
         } catch (IOException e) {
             Logger.logLater(e.getMessage());
-            throw new RuntimeException(e);
         }
 
     }
