@@ -19,11 +19,16 @@ public class Main {
         File shoppingTripFile = readFile(shoppingTripFilePath);
 
         Pantry testPantry = Pantry.PantryFactory.producePantryFromFile(testFile);
-        Logger.logNow((testPantry.toString()));
-        Pantry shoppingTrip = Pantry.PantryFactory.producePantryFromFile(shoppingTripFile);
+        Logger.logNow("testPantry" + (testPantry.toString()));
+        Pantry recipe = Pantry.PantryFactory.producePantryFromFile(shoppingTripFile);
+        Logger.logNow("recipe" + (recipe.toString()));
+        Pantry shoppingList = testPantry.updatePantryWithRecipe(recipe);
+        Logger.logNow("TestPantry after recipeupdate" + testPantry.toString());
+        Logger.logNow("shoppingList" + shoppingList.toString());
+        testPantry.addShopping(shoppingList);
+        Logger.logNow("testPantry" + testPantry.toString());
 
-        testPantry.addShopping(shoppingTrip);
-        Logger.logNow(testPantry.toString());
+
 
 
 

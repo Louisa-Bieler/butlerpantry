@@ -13,14 +13,19 @@ public class Ingredient {
     private HashMap<String, Double> unitAmount = new HashMap<>();
 
 
-
+    public Ingredient(Ingredient tocopy){
+        this.name = tocopy.getName();
+        this.setUnitAmount(tocopy.getUnitAmount());
+    }
 
     public Ingredient(String name, String unit, Double amount){
         this.name = name;
         this.unitAmount.put(unit, amount);
     }
 
-
+    public void setUnitAmount(HashMap<String, Double> unitAmount) {
+        this.unitAmount = unitAmount;
+    }
     public String getName() {
         return this.name;
     }
@@ -58,24 +63,38 @@ public class Ingredient {
     public HashMap<String, Double> getUnitAmount() {
         return unitAmount;
     }
-    public HashMap<String, Double> setAmountFromRecipe(Ingredient recipeIngredient){
-        HashMap<String, Double> tempUnitAmounts = recipeIngredient.getUnitAmount();
-        this.unitAmount.forEach(
-                (unitKey, unitValue) ->
-                    tempUnitAmounts.merge(
-                            unitKey, unitValue, (value1, value2)
-                                    -> value1 - value2));
-        tempUnitAmounts.forEach(
-                (updatedKey, updatedValue) ->
-                { if (updatedValue > 0){
-                    this.setAmountFromScratch(updatedKey, updatedValue);
-                    tempUnitAmounts.remove(updatedKey);
-                } else if (updatedValue < 0) {
-                    tempUnitAmounts.replace(updatedKey, updatedValue *-1);
-                } else {
-                    this.removeUnit(updatedKey);
-                }});
-        return tempUnitAmounts;
+    public void setAmountFromRecipe(Ingredient recipeIngredient){
+        recipeIngredient.getUnitAmount().forEach(
+                (unitKey, unitValue) -> {
+                    if (this.unitAmount.keySet().contains(unitKey)) {
+                        this.getUnitAmount().merge(
+                                unitKey, unitValue, (value1, value2)
+                                        -> {
+                                    if (value1 - value2 > 0) {
+                                        return value1 - value2;
+                                    } else {
+                                        return value1;
+                                    }
+                                }
+                        );
+                    }
+                }
+        );
+    }
+
+    public Ingredient createShoppingListIngredient(Ingredient recipeIngredient){
+        Ingredient temp = new Ingredient(recipeIngredient);
+        recipeIngredient.getUnitAmount().forEach(
+                (unitKey, unitValue) -> {
+                    if (this.unitAmount.keySet().contains(unitKey)) {
+                            Double currentAmount = this.unitAmount.get(unitKey);
+                            if ((recipeIngredient.getUnitAmount().get(unitKey)-currentAmount) < 0){
+                                    temp.setAmountFromScratch(unitKey, recipeIngredient.getAmount(unitKey)-currentAmount);
+                                    }
+                    }
+                }
+        );
+        return temp;
     }
 
     @Override
