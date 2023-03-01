@@ -1,0 +1,1 @@
+Cannot invoke "java.util.HashMap.get(Object)" because "this.inventory" is null
