@@ -3,7 +3,9 @@ package com.louisa.butlerspantry;
 import com.louisa.logging.Logger;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PantryLogic {
 
@@ -25,16 +27,27 @@ public class PantryLogic {
         return newPantry;
     }
 
-    public Pantry createShoppingList(Pantry recipe, Pantry pantry) {
-        return null;
+    /*public Pantry createShoppingList(Pantry recipe, Pantry pantry) {
+        Pantry shoppingList = new Pantry();
+        HashMap<String, HashMap<String, Double>> tempRecipe = new HashMap<>(recipe.getInventory());
+        if (tempRecipe.keySet().removeAll(pantry.getInventory().keySet())){
+            shoppingList.setInventory(tempRecipe);
+            recipe.getInventory().keySet().removeAll(shoppingList.getInventory().keySet());
+        }
+        recipe.getInventory().forEach(
+                (ingredientName, hashMapUnitAmount) ->
+                {
+                    if (hashMapUnitAmount)
+                }
+        );
+
+
+
+
     }
 
     public void updatePantryFromFile(File fileObject, Pantry pantry){
 
-    }
+    }*/
 
-
-    public File createFileObjectFromPantry(Pantry pantry){
-        return null;
-    }
 }

@@ -20,9 +20,15 @@ public class Pantry {
         return this.inventory;
     }
 
+    public void setInventory(HashMap<String, HashMap<String, Double>> newInventory){
+        this.inventory = newInventory;
+    }
+
     public Set<String> getIngredientNames(){
         return this.inventory.keySet();
     }
+
+
 
     public void setIngredient(String ingredientName, String unitName, Double amount){
         if (this.inventory != null){
