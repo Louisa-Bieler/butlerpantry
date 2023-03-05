@@ -13,14 +13,9 @@ public class Pantry {
     private HashMap<String, Ingredient> inventory;
 
     public Pantry(File pantryFile) {
-        Pantry newPantry = PantryFactory.producePantryFromFile(pantryFile);
+        Pantry newPantry = PantryLogic.producePantryFromFile(pantryFile);
         this.inventory = newPantry.inventory;
     }
-
-    public Pantry(HashMap<String, Ingredient> inventory) {
-        this.inventory = inventory;
-    }
-
 
     public Pantry() {
         this.inventory = new HashMap<String, Ingredient>();
@@ -34,19 +29,11 @@ public class Pantry {
         this.inventory = inventory;
     }
 
-    public void setIngredientFromString(String name, String unit, Double amount) {
-        if (this.inventory.containsKey(name)) {
-            this.inventory.get(name).setAmountFromScratch(unit, amount);
-        } else {
-            this.inventory.put(name, Ingredient.IngredientFactory.returnIngredient((name + "," + unit + "," + amount.toString())));
-        }
-    }
-
     public void setIngredientFromIngredient(Ingredient ingredientToAdd) {
-        if (this.inventory.containsKey(ingredientToAdd.getName())) {
-            this.inventory.get(ingredientToAdd.getName()).addAmountFromShopping(ingredientToAdd.getUnitAmount());
+        if (this.inventory.containsKey(ingredientToAdd.getName()+ingredientToAdd.getUnit())) {
+            this.inventory.get(ingredientToAdd.getName()+ingredientToAdd.getUnit()).addAmountFromShopping(ingredientToAdd.getAmount());
         } else {
-            this.inventory.put(ingredientToAdd.getName(), ingredientToAdd);
+            this.inventory.put(ingredientToAdd.getName()+ingredientToAdd.getUnit(), ingredientToAdd);
         }
     }
 
@@ -55,7 +42,7 @@ public class Pantry {
     }
 
     public void replaceIngredient(Ingredient replacement) {
-        this.inventory.replace(replacement.getName(), replacement);
+        this.inventory.replace(replacement.getName()+replacement.getUnit(), replacement);
     }
 
     @Override
@@ -72,53 +59,6 @@ public class Pantry {
         return this.inventory.get(name);
     }
 
-    public void addShopping(Pantry entries) {
-        entries.getInventory().forEach(
-                (key, value) ->
-                        this.inventory.merge(
-                                key, value, (value1, value2) ->
-                                {
-                                    value1.addAmountFromShopping(value2.getUnitAmount());
-                                    return value1;
-                                }
-                        )
-        );
-    }
-
-    public Pantry updatePantryWithRecipe(Pantry recipe) {
-        Pantry shoppingList = new Pantry();
-        recipe.getInventory().forEach(
-                (recipeIngredientName, recipeIngredient) ->
-                {
-                    if (this.getInventory().keySet().contains(recipeIngredientName)) {
-                        shoppingList.setIngredientFromIngredient(this.getIngredient(recipeIngredientName));
-                        this.getIngredient(recipeIngredientName).setAmountFromRecipe(recipeIngredient);
-                        shoppingList.replaceIngredient(shoppingList.getIngredient(recipeIngredientName).createShoppingListIngredient(recipeIngredient));
-                    } else {
-                        shoppingList.setIngredientFromIngredient(recipeIngredient);
-                    }
-                }
-        );
-        return shoppingList;
-    }
-
-    public static class PantryFactory {
-
-        public static Pantry producePantryFromFile(File defaultPantryFile) {
-            Pantry newPantry = new Pantry();
-            try (Scanner scanner = new Scanner(defaultPantryFile).useDelimiter(",")) {
-                while (scanner.hasNextLine()) {
-                    Ingredient iterIngredient = Ingredient.IngredientFactory.returnIngredient(scanner.nextLine());
-                    newPantry.setIngredientFromIngredient(iterIngredient);
-
-                }
-                return newPantry;
-            } catch (Exception e) {
-                Logger.logLater(e.getMessage());
-                throw new RuntimeException(e);
-            }
-        }
-    }
 }
 
 

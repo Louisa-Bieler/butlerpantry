@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/IngredientLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/PantryLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/UnitConversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="paying attention to dataStructures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/IngredientLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/IngredientLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/Pantry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/PantryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/PantryLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/UnitConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/outofhafermilk/UnitConversion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677066977815</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="paying attention to dataStructures">
+      <created>1677745532268</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677745532268</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,7 +177,8 @@
     <MESSAGE value="IT WORKS!!!!" />
     <MESSAGE value="not yet working but a lot of progoress" />
     <MESSAGE value="the HashMap version that runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="the HashMap version that runs" />
+    <MESSAGE value="paying attention to dataStructures" />
+    <option name="LAST_COMMIT_MESSAGE" value="paying attention to dataStructures" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -178,6 +187,16 @@
           <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/Main.java</url>
           <line>24</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/PantryLogic.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/louisa/outofhafermilk/PantryLogic.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />

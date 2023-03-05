@@ -36,7 +36,7 @@ public class Ingredient {
     }
 
     public void addAmountFromShopping(Double amount) {
-        this.amount *= amount;
+        this.amount += amount;
     }
 
     public void subtractAmountFromRecipe(Double amount) {
