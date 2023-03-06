@@ -8,8 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.louisa.outofhafermilk.UnitConversion.convertUnitAmount;
-import static com.louisa.outofhafermilk.UnitConversion.convertUnitName;
+import static com.louisa.outofhafermilk.UnitConversion.*;
 
 public class IngredientLogic {
 
@@ -21,7 +20,8 @@ public class IngredientLogic {
             String name = lineParts[0];
             String unit = convertUnitName(lineParts[1]);
             Double amount = convertUnitAmount(unit, Double.parseDouble(lineParts[2]));
-            Ingredient newIngredient  = new Ingredient(name, unit, amount);
+            String finalUnit = nonMetricUnits(unit);
+            Ingredient newIngredient  = new Ingredient(name, finalUnit, amount);
             return newIngredient;
         } catch (Exception e) {
             Logger.logNow(e.getMessage());
