@@ -1,4 +1,4 @@
-package com.louisa.outofhafermilk;
+package com.louisa.butlerpantry;
 
 import com.louisa.logging.Logger;
 

@@ -1,4 +1,4 @@
-package com.louisa.outofhafermilk;
+package com.louisa.butlerpantry;
 
 public class Ingredient {
     private String name;
@@ -40,7 +40,7 @@ public class Ingredient {
     }
 
     public void subtractAmountFromRecipe(Double amount) {
-        this.amount -= amount;
+        this.amount = this.amount - amount;
     }
 
     @Override

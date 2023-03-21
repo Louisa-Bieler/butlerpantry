@@ -1,14 +1,11 @@
-package com.louisa.outofhafermilk;
+package com.louisa.butlerpantry;
 
 import com.louisa.logging.Logger;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-import static com.louisa.outofhafermilk.ReadFile.readFile;
+import static com.louisa.butlerpantry.ReadFile.readFile;
 
 public class Main {
 
@@ -20,8 +17,10 @@ public class Main {
 
         File testFile = readFile(defaultPantryFilePath);
         File shoppingTripFile = readFile(shoppingTripFilePath);
+        UnitConversion.addUnitConversionMapping("unitConversions.csv");
+        File recipethree = readFile("recipe.csv");
+        Pantry recipePantryThree = PantryLogic.producePantryFromFile(recipethree);
 
-        UnitConversion.loadConversionHashMaps();
 
         Pantry testPantry = PantryLogic.producePantryFromFile(testFile);
         Pantry otherRecipe = PantryLogic.producePantryFromFile(testFile);
@@ -32,8 +31,9 @@ public class Main {
         Logger.logNow("TestPantry after recipeupdate: \n" + testPantry);
         Logger.logNow("shoppingList:\n" + shoppingList);
         PantryLogic.addShopping(testPantry, shoppingList);
+        Logger.logNow("test Pantry after shoppning: \n" + testPantry);
         Logger.logNow("other Recipe:\n" + otherRecipe);
-        PantryLogic.updatePantryWithRecipe(testPantry, otherRecipe);
+        PantryLogic.updatePantryWithRecipe(testPantry, recipePantryThree);
         Logger.logNow("testPantry:\n" + testPantry);
 
 

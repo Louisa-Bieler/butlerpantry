@@ -1,4 +1,4 @@
-package com.louisa.outofhafermilk;
+package com.louisa.butlerpantry;
 
 import com.louisa.logging.Logger;
 
@@ -29,9 +29,9 @@ public class PantryLogic {
                 {
                     if(!toUpdate.getInventory().keySet().contains(recipeIngredientKey)){
                         shoppingList.setIngredientFromIngredient(recipeIngredient);
-                    } else if (toUpdate.getInventory().get(recipeIngredientKey).getAmount()>recipeIngredient.getAmount()) {
+                    } else if (toUpdate.getIngredient(recipeIngredientKey).getAmount()>recipeIngredient.getAmount()) {
                         toUpdate.getIngredient(recipeIngredientKey).subtractAmountFromRecipe(recipeIngredient.getAmount());
-                    } else if (toUpdate.getInventory().get(recipeIngredientKey).getAmount()==recipeIngredient.getAmount()) {
+                    } else if (toUpdate.getIngredient(recipeIngredientKey).getAmount().equals(recipeIngredient.getAmount())) {
                         toUpdate.removeEntireIngredient(recipeIngredientKey);
                     } else {
                         shoppingList.setIngredientFromIngredient(recipeIngredient);
