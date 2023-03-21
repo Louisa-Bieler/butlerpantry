@@ -28,6 +28,7 @@ public class IngredientLogic {
             return newIngredient;
         } catch (Exception e) {
             Logger.logNow(e.getMessage());
+            Logger.logLater("String "+ "\"" + g + "\"" + " could not be processed. Reason: " + e.getMessage());
             throw e;
         }
     }

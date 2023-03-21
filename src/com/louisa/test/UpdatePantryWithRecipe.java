@@ -1,19 +1,27 @@
-package com.louisa.butlerpantry;
+package com.louisa.test;
 
+import com.louisa.butlerpantry.Pantry;
+import com.louisa.butlerpantry.PantryLogic;
+import com.louisa.butlerpantry.ReadFile;
+import com.louisa.butlerpantry.UnitConversion;
 import com.louisa.logging.Logger;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Path;
+import java.util.Objects;
 
-import static com.louisa.butlerpantry.ReadFile.readFile;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class Main {
-
-
-    public static void main(String[] args) throws IOException {
+public class UpdatePantryWithRecipe {
 
 
+    @Test
+    public void testUpdatePantryWithRecipe() throws IOException {
+        //filePaths to .csv files used for data persistence
         String defaultPantryFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/myPantry.csv";
         String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/shoppingList.csv";
         String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/unitConversions.csv";
@@ -38,21 +46,9 @@ public class Main {
             PantryLogic.addShopping(testPantry, shoppingTrip);
         }
         PantryLogic.subtractPrecheckedRecipeFromPantry(testPantry, recipe);
-
-        Logger.logNow("TestPantry after recipeupdate: \n" + testPantry);
-
-
-
-
-
-
-
-
-
-        }
-
-
+        Double recipeValue = recipe.getIngredient("breadpiece").getAmount();
+        Double finalState = testPantry.getIngredient("breadpiece").getAmount();
+        Assertions.assertTrue(finalState.equals(preValue - recipeValue));
 
     }
-
-
+}

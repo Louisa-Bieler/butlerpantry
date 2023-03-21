@@ -2,6 +2,8 @@ package com.louisa.butlerpantry;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
 public class Pantry {
     private HashMap<String, Ingredient> inventory;
 
-    public Pantry(File pantryFile) {
+    public Pantry(File pantryFile) throws IOException {
         Pantry newPantry = PantryLogic.producePantryFromFile(pantryFile);
         this.inventory = newPantry.inventory;
     }
@@ -52,8 +54,8 @@ public class Pantry {
         return sb.toString();
     }
 
-    public Ingredient getIngredient(String name) {
-        return this.inventory.get(name);
+    public Ingredient getIngredient(String ingredientKey) {
+        return this.inventory.get(ingredientKey);
     }
 
 }

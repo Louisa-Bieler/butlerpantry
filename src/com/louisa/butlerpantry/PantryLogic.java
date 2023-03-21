@@ -3,11 +3,12 @@ package com.louisa.butlerpantry;
 import com.louisa.logging.Logger;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PantryLogic {
 
-    public static Pantry producePantryFromFile(File defaultPantryFile) {
+    public static Pantry producePantryFromFile(File defaultPantryFile) throws IOException {
         Pantry newPantry = new Pantry();
         try (Scanner scanner = new Scanner(defaultPantryFile).useDelimiter(",")) {
             while (scanner.hasNextLine()) {
@@ -16,13 +17,13 @@ public class PantryLogic {
 
             }
             return newPantry;
-        } catch (Exception e) {
+        } catch (IOException e) {
             Logger.logLater(e.getMessage());
-            throw new RuntimeException(e);
+            throw new IOException(e);
         }
     }
 
-    public static Pantry updatePantryWithRecipe(Pantry toUpdate, Pantry recipe) {
+    public static boolean checkRecipeAgainstPantry(Pantry toUpdate, Pantry recipe) {
         Pantry shoppingList = new Pantry();
         recipe.getInventory().forEach(
                 (recipeIngredientKey, recipeIngredient) ->
@@ -30,15 +31,33 @@ public class PantryLogic {
                     if(!toUpdate.getInventory().keySet().contains(recipeIngredientKey)){
                         shoppingList.setIngredientFromIngredient(recipeIngredient);
                     } else if (toUpdate.getIngredient(recipeIngredientKey).getAmount()>recipeIngredient.getAmount()) {
-                        toUpdate.getIngredient(recipeIngredientKey).subtractAmountFromRecipe(recipeIngredient.getAmount());
+                        return;
                     } else if (toUpdate.getIngredient(recipeIngredientKey).getAmount().equals(recipeIngredient.getAmount())) {
-                        toUpdate.removeEntireIngredient(recipeIngredientKey);
+                        return;
                     } else {
                         shoppingList.setIngredientFromIngredient(recipeIngredient);
                     }
                 }
         );
-        return shoppingList;
+        if (shoppingList.getInventory().isEmpty()){
+            return true;
+        } else {
+            WriteFile.createUpdatedCSV(shoppingList, "shoppingList.csv");
+            return false;
+        }
+
+    }
+
+    public static void subtractPrecheckedRecipeFromPantry(Pantry toUpdate, Pantry recipe){
+        recipe.getInventory().forEach(
+                (recipeIngredientKey, recipeIngredient) ->
+                { if (toUpdate.getIngredient(recipeIngredientKey).getAmount()>recipeIngredient.getAmount()) {
+                    toUpdate.getIngredient(recipeIngredientKey).subtractAmountFromRecipe(recipeIngredient.getAmount());
+                } else {
+                    toUpdate.removeEntireIngredient(recipeIngredientKey);
+                }
+
+    });
     }
 
     public static void addShopping(Pantry toUpdate, Pantry entries) {
