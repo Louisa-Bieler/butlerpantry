@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="debugging adding UnitTests">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/butlerpantry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/butlerpantry.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +46,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "create.test.in.the.same.root": "true",
     "last.edited.regexp": "Sample Text",
     "last_opened_file_path": "/Users/louisa.bieler/IdeaProjects/butlerpantry",
     "project.structure.last.edited": "Global Libraries",
@@ -148,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678076432110</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="debugging adding UnitTests">
+      <created>1679654869401</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679654869401</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +172,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/unitTests" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -182,7 +192,8 @@
     <MESSAGE value="the HashMap version that runs" />
     <MESSAGE value="paying attention to dataStructures" />
     <MESSAGE value="paying attention to dataStructures and it runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="paying attention to dataStructures and it runs" />
+    <MESSAGE value="debugging adding UnitTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugging adding UnitTests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
