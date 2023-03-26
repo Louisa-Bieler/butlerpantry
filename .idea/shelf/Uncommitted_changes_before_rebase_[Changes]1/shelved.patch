@@ -1,0 +1,20 @@
+Index: README.MD
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Goal Behaviors:\n\nCurrent Behavior:\n\nTo create a starter pantry, the app uses ReadFile.readFile() to create a File object. This object in turn is made into a Pantry by the PantryFactory.producePantryFromFile
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.MD b/README.MD
+--- a/README.MD	(revision be91a96a0eb479e020f7b89376b619f3ab7bdbad)
++++ b/README.MD	(date 1679657641022)
+@@ -1,5 +1,5 @@
+-Goal Behaviors:
++# butlerspantry
++Pantry Management Java Backend
+ 
+-Current Behavior:
+ 
+-To create a starter pantry, the app uses ReadFile.readFile() to create a File object. This object in turn is made into a Pantry by the PantryFactory.producePantryFromFile
+\ No newline at end of file
++![image](https://user-images.githubusercontent.com/89457318/222160348-29988159-a0a2-44db-a681-eb5b3f0e5773.png)
