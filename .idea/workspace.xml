@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" />
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="Refactoring Pantry to Include Name Field">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/butlerpantry/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/butlerpantry/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/butlerpantry/PantryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/butlerpantry/PantryLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/butlerpantry/WriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/butlerpantry/WriteFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/test/AddAmountFromShopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/test/AddAmountFromShopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/louisa/test/UpdatePantryWithRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/louisa/test/UpdatePantryWithRecipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="datastructureBranch" />
+        <entry key="$PROJECT_DIR$" value="Refactoring_Ingredient_to_Use_BigDecimal" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,6 +72,26 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.louisa.butlerpantry.Main" />
+      <module name="butlerpantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisa.butlerpantry.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -168,7 +193,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679655876041</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="stupid things">
+      <created>1679805239849</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679805239849</updated>
+    </task>
+    <task id="LOCAL-00015" summary="recfactoring Ingredient and IngredientLogic to use BigDecimal">
+      <created>1682430317816</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682430317816</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactoring Pantry to Include Name Field">
+      <created>1682431370906</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682431370906</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +249,10 @@
     <MESSAGE value="paying attention to dataStructures" />
     <MESSAGE value="paying attention to dataStructures and it runs" />
     <MESSAGE value="debugging adding UnitTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging adding UnitTests" />
+    <MESSAGE value="stupid things" />
+    <MESSAGE value="recfactoring Ingredient and IngredientLogic to use BigDecimal" />
+    <MESSAGE value="Refactoring Pantry to Include Name Field" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Pantry to Include Name Field" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

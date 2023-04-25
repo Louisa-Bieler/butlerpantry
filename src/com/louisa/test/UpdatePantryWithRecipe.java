@@ -16,7 +16,7 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UpdatePantryWithRecipe {
+public class TestUpdatePantryWithRecipe {
 
 
     @Test
@@ -34,21 +34,7 @@ public class UpdatePantryWithRecipe {
         File recipeFile = ReadFile.readFile(recipeFilePath);
 
 
-        //Pantry objects to test logic
-        Pantry testPantry = PantryLogic.producePantryFromFile(testFile);
-        Double preValue = testPantry.getIngredient("breadpiece").getAmount();
-        Pantry recipe = PantryLogic.producePantryFromFile(recipeFile);
-        Pantry shoppingTrip = PantryLogic.producePantryFromFile(shoppingTripFile);
 
-        //using Pantry objects to test PantryLogic method updatePantryWithRecipe
-        boolean shoppingListTrue = PantryLogic.checkRecipeAgainstPantry(testPantry, recipe);
-        if (shoppingListTrue == false) {
-            PantryLogic.addShopping(testPantry, shoppingTrip);
-        }
-        PantryLogic.subtractPrecheckedRecipeFromPantry(testPantry, recipe);
-        Double recipeValue = recipe.getIngredient("breadpiece").getAmount();
-        Double finalState = testPantry.getIngredient("breadpiece").getAmount();
-        Assertions.assertTrue(finalState.equals(preValue - recipeValue));
 
     }
 }

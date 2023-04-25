@@ -13,7 +13,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         String defaultPantryFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/myPantry.csv";
         String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/shoppingList.csv";
         String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/unitConversions.csv";
@@ -26,20 +25,7 @@ public class Main {
         File recipeFile = ReadFile.readFile(recipeFilePath);
 
 
-        //Pantry objects to test logic
-        Pantry testPantry = PantryLogic.producePantryFromFile(testFile);
-        Double preValue = testPantry.getIngredient("breadpiece").getAmount();
-        Pantry recipe = PantryLogic.producePantryFromFile(recipeFile);
-        Pantry shoppingTrip = PantryLogic.producePantryFromFile(shoppingTripFile);
 
-        //using Pantry objects to test PantryLogic method updatePantryWithRecipe
-        boolean shoppingListTrue = PantryLogic.checkRecipeAgainstPantry(testPantry, recipe);
-        if (shoppingListTrue == false) {
-            PantryLogic.addShopping(testPantry, shoppingTrip);
-        }
-        PantryLogic.subtractPrecheckedRecipeFromPantry(testPantry, recipe);
-
-        Logger.logNow("TestPantry after recipeupdate: \n" + testPantry);
 
 
 
