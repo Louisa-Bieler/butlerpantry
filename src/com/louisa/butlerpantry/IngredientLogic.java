@@ -2,33 +2,32 @@ package com.louisa.butlerpantry;
 
 import com.louisa.logging.Logger;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import static com.louisa.butlerpantry.UnitConversion.*;
 
 public class IngredientLogic {
 
-    public static Ingredient returnIngredient(String g) {
+    public static Ingredient returnIngredient(String record) {
 
         try {
-            String line = g;
-            String[] lineParts = line.split(",");
-            String[] conversionUnits = unitConversion(line);
-            String name;
+            String[] recordFields = record.split(",");
+            String[] conversionUnits = unitConversion(record);
+            String name = recordFields[0];
             String unit;
-            Double amount;
+            BigDecimal amount;
             if (conversionUnits==null) {
-                name = lineParts[0];
-                unit = lineParts[1];
-                amount = Double.parseDouble(lineParts[2]);
+                unit = recordFields[1];
+                amount = BigDecimal.valueOf(Long.parseLong(recordFields[2]));
             } else {
-                name = lineParts[0];
                 unit = conversionUnits[0];
-                amount = Double.parseDouble(lineParts[2]) * Double.parseDouble(conversionUnits[1]);
+                amount = BigDecimal.valueOf(Double.parseDouble(recordFields[2]) * Double.parseDouble(conversionUnits[1])).setScale(3, RoundingMode.HALF_UP);
             }
-            Ingredient newIngredient  = new Ingredient(name, unit, amount);
-            return newIngredient;
+            return new Ingredient(name, unit, amount);
         } catch (Exception e) {
             Logger.logNow(e.getMessage());
-            Logger.logLater("String "+ "\"" + g + "\"" + " could not be processed. Reason: " + e.getMessage());
+            Logger.logLater("String "+ "\"" + record + "\"" + " could not be processed. Reason: " + e.getMessage());
             throw e;
         }
     }

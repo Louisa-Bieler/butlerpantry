@@ -1,12 +1,16 @@
 package com.louisa.butlerpantry;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Ingredient {
     private String name;
     private String unit;
-    private Double amount;
+    private BigDecimal amount;
+
 
 //Constructor:
-    public Ingredient(String name, String unit, Double amount){
+    public Ingredient(String name, String unit, BigDecimal amount){
         this.name = name;
         this.unit = unit;
         this.amount = amount;
@@ -28,25 +32,25 @@ public class Ingredient {
         this.unit = unit;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return this.amount;
     }
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void addAmountFromShopping(Double amount) {
-        this.amount += amount;
+    public void addAmountFromShopping(BigDecimal amount) {
+        this.amount.add(amount);
     }
 
-    public void subtractAmountFromRecipe(Double amount) {
-        this.amount = this.amount - amount;
+    public void subtractAmountFromRecipe(BigDecimal amount) {
+        this.amount.subtract(amount);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.name + "," + this.unit + "," + this.amount.toString() + "\n");
+        sb.append(this.name + "," + this.unit + "," + this.amount.setScale(2, RoundingMode.HALF_UP).toString() + "\n");
         return sb.toString();
     }
 }
