@@ -1,23 +1,18 @@
 package com.louisa.butlerpantry;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.*;
 import java.lang.String;
+import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class Pantry {
     private HashMap<String, Ingredient> inventory;
+    private String name;
 
-    public Pantry(File pantryFile) throws IOException {
-        Pantry newPantry = PantryLogic.producePantryFromFile(pantryFile);
-        this.inventory = newPantry.inventory;
-    }
-
-    public Pantry() {
+    public Pantry(String name) {
         this.inventory = new HashMap<String, Ingredient>();
+        this.name = name;
     }
 
     public HashMap<String, Ingredient> getInventory() {
@@ -43,7 +38,17 @@ public class Pantry {
     public void replaceIngredient(Ingredient replacement) {
         this.inventory.replace(replacement.getName()+replacement.getUnit(), replacement);
     }
+    public Ingredient getIngredient(String ingredientKey) {
+        return this.inventory.get(ingredientKey);
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     @Override
     public String toString() {
         Iterator<Ingredient> ingredientIterator = this.inventory.values().iterator();
@@ -54,9 +59,7 @@ public class Pantry {
         return sb.toString();
     }
 
-    public Ingredient getIngredient(String ingredientKey) {
-        return this.inventory.get(ingredientKey);
-    }
+
 
 }
 
