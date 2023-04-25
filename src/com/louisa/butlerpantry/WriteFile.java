@@ -20,7 +20,7 @@ public class WriteFile {
         }
 
     }
-    public static void createShoppingList(String shoppingList, String newFilename){
+    public static void writeShoppingListToCSV(String shoppingList, String newFilename){
         File shoppingListFile = new File(newFilename);
         String message = shoppingList;
         try (FileWriter fw = new FileWriter(shoppingListFile)){
