@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ReturnIngredient {
+public class TestReturnIngredient {
 
     @Test
     public void testReturnIngredientBadStringDouble(){
@@ -14,7 +14,7 @@ public class ReturnIngredient {
         Exception badStringException = assertThrows(Exception.class, () -> {
             Ingredient willNotCome = IngredientLogic.returnIngredient(badString);
         });
-        String expectedMessage = "For input string: \"glory\"";
+        String expectedMessage = "glory";
         String actualMessage = badStringException.getMessage();
 
          assertTrue(actualMessage.contains(expectedMessage));
@@ -27,10 +27,17 @@ public class ReturnIngredient {
         Exception badStringException = assertThrows(Exception.class, () -> {
             Ingredient willNotCome = IngredientLogic.returnIngredient(badString);
         });
-        String expectedMessage = "does it";
+        String expectedMessage = "glory";
         String actualMessage = badStringException.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    public void testReturnIngredientNegativeAmount() {
+        IllegalArgumentException badAmountException = assertThrows(IllegalArgumentException.class, () -> {
+            Ingredient willNotCome = IngredientLogic.returnIngredient("Flour,g,-1000");
+        });
     }
 
 }
