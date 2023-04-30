@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="minor things renaming writeShoppingListToCSV, eliminating parts of test and main that were not up to date, incorporate new BigDecimal status to AddAmountFromShopping.java test" />
+    <list default="true" id="6deb29c5-d219-4a9b-8e43-001be9bcfec7" name="Changes" comment="Adding a stdout logger for the difference between recipe and pantry (Logger.logNow()); separating shopping list persistence in its own method (saveShoppingListAsFile) and leaving the flow to main().">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,13 +29,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Refactoring_Pantry_to_Include_Name_Field" />
+        <entry key="$PROJECT_DIR$" value="Refactoring_Ingredient_to_Use_BigDecimal" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -45,44 +51,115 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;Sample Text&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/louisa.bieler/IdeaProjects/butlerpantry&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "create.test.in.the.same.root": "true",
+    "last.edited.regexp": "Sample Text",
+    "last_opened_file_path": "/Users/louisa.bieler/IdeaProjects/butlerpantry",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.louisa.butlerpantry.Main" />
+  <component name="RunManager" selected="JUnit.AddAmountFromShopping.testAddAmountFromShoppingWhenAmountIsNegative">
+    <configuration name="AddAmountFromShopping.testAddAmountFromShoppingWhenAmountIsNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="butlerpantry" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.louisa.butlerpantry.*" />
+          <option name="PATTERN" value="com.louisa.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.louisa.test" />
+      <option name="MAIN_CLASS_NAME" value="com.louisa.test.AddAmountFromShopping" />
+      <option name="METHOD_NAME" value="testAddAmountFromShoppingWhenAmountIsNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddAmountFromShopping.testAddNegativeAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="butlerpantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisa.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.louisa.test" />
+      <option name="MAIN_CLASS_NAME" value="com.louisa.test.AddAmountFromShopping" />
+      <option name="METHOD_NAME" value="testAddNegativeAmount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReturnIngredient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="butlerpantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisa.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.louisa.test" />
+      <option name="MAIN_CLASS_NAME" value="com.louisa.test.TestReturnIngredient" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReturnIngredient.testReturnIngredientBadStringEscape" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="butlerpantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisa.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.louisa.test" />
+      <option name="MAIN_CLASS_NAME" value="com.louisa.test.TestReturnIngredient" />
+      <option name="METHOD_NAME" value="testReturnIngredientBadStringEscape" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReturnIngredient.testReturnIngredientNegativeAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="butlerpantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisa.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.louisa.test" />
+      <option name="MAIN_CLASS_NAME" value="com.louisa.test.TestReturnIngredient" />
+      <option name="METHOD_NAME" value="testReturnIngredientNegativeAmount" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestReturnIngredient.testReturnIngredientNegativeAmount" />
+        <item itemvalue="JUnit.TestReturnIngredient.testReturnIngredientBadStringEscape" />
+        <item itemvalue="JUnit.TestReturnIngredient" />
+        <item itemvalue="JUnit.AddAmountFromShopping.testAddNegativeAmount" />
+        <item itemvalue="JUnit.AddAmountFromShopping.testAddAmountFromShoppingWhenAmountIsNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +284,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682431370906</updated>
     </task>
+    <task id="LOCAL-00017" summary="Adding test case for new, improved Ingredient method addAmountFromShopping with negative number safety checks.">
+      <created>1682680566491</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682680566491</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Adding test case for new, improved IngredientLogic method returnIngredient with safety check for no negative amounts">
+      <created>1682680642749</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682680642749</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Adding a stdout logger for the difference between recipe and pantry (Logger.logNow()); separating shopping list persistence in its own method (saveShoppingListAsFile) and leaving the flow to main().">
+      <created>1682681121057</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682681121057</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <task id="LOCAL-00017" summary="Refactoring PantryLogic to make internal parts &quot;private&quot; and separate the checking of a recipe against a pantry, subtracting a recipe from a pantry, creating a shopping List as a Pantry object, and then one public method that does the whole thing and writes the new shopping List to a CSV file">
       <created>1682432035388</created>
       <option name="number" value="00017" />
@@ -259,6 +358,10 @@
     <MESSAGE value="stupid things" />
     <MESSAGE value="recfactoring Ingredient and IngredientLogic to use BigDecimal" />
     <MESSAGE value="Refactoring Pantry to Include Name Field" />
+    <MESSAGE value="Adding test case for new, improved Ingredient method addAmountFromShopping with negative number safety checks." />
+    <MESSAGE value="Adding test case for new, improved IngredientLogic method returnIngredient with safety check for no negative amounts" />
+    <MESSAGE value="Adding a stdout logger for the difference between recipe and pantry (Logger.logNow()); separating shopping list persistence in its own method (saveShoppingListAsFile) and leaving the flow to main()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding a stdout logger for the difference between recipe and pantry (Logger.logNow()); separating shopping list persistence in its own method (saveShoppingListAsFile) and leaving the flow to main()." />
     <MESSAGE value="Refactoring PantryLogic to make internal parts &quot;private&quot; and separate the checking of a recipe against a pantry, subtracting a recipe from a pantry, creating a shopping List as a Pantry object, and then one public method that does the whole thing and writes the new shopping List to a CSV file" />
     <MESSAGE value="minor things renaming writeShoppingListToCSV, eliminating parts of test and main that were not up to date, incorporate new BigDecimal status to AddAmountFromShopping.java test" />
     <option name="LAST_COMMIT_MESSAGE" value="minor things renaming writeShoppingListToCSV, eliminating parts of test and main that were not up to date, incorporate new BigDecimal status to AddAmountFromShopping.java test" />
