@@ -1,14 +1,13 @@
 package com.louisa.test;
 import com.louisa.butlerpantry.Ingredient;
-import org.junit.jupiter.api.AfterEach;
+import com.louisa.logging.Logger;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class AddAmountFromShopping {
@@ -20,12 +19,6 @@ public class AddAmountFromShopping {
         assertEquals(BigDecimal.valueOf(1500).setScale(2), testIngredient.getAmount());
     }
 
-    @Test
-    public void testAddNegativeAmount() {
-        Ingredient testIngredient = new Ingredient("Flour", "g", BigDecimal.valueOf(50));
-        testIngredient.addAmountFromShopping(BigDecimal.valueOf(-0.2));
-        assertEquals(BigDecimal.valueOf(49.8).setScale(2), testIngredient.getAmount());
-    }
 
     @Test
     public void testAddAmountFromShoppingWhenAmountIsNegative() {
@@ -33,5 +26,7 @@ public class AddAmountFromShopping {
         IllegalArgumentException negativeNumber = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             testIngredient.addAmountFromShopping(BigDecimal.valueOf(-500));
         });
+        Logger.logNow(negativeNumber.getMessage());
+
     }
 }

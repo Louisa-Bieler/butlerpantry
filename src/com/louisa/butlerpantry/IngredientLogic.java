@@ -26,7 +26,7 @@ public class IngredientLogic {
             }
             return new Ingredient(name, unit, amount);
         } catch (IllegalArgumentException wrongNumber) {
-            Logger.logNow(wrongNumber.getMessage());
+
             throw wrongNumber;
         } catch (Exception e) {
             throw e;

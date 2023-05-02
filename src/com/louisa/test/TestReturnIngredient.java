@@ -1,10 +1,12 @@
 package com.louisa.test;
 import com.louisa.butlerpantry.Ingredient;
 import com.louisa.butlerpantry.IngredientLogic;
+import com.louisa.logging.Logger;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class TestReturnIngredient {
 
@@ -38,6 +40,7 @@ public class TestReturnIngredient {
         IllegalArgumentException badAmountException = assertThrows(IllegalArgumentException.class, () -> {
             Ingredient willNotCome = IngredientLogic.returnIngredient("Flour,g,-1000");
         });
+        Logger.logNow(badAmountException.getMessage());
     }
 
 }
