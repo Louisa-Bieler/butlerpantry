@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class PantryLogic {
 
     public static Pantry producePantryFromFile(File defaultPantryFile) throws IOException {
-        Pantry newPantry = new Pantry(defaultPantryFile.getName());
+        Pantry newPantry = new Pantry();
         try (Scanner scanner = new Scanner(defaultPantryFile).useDelimiter(",")) {
             while (scanner.hasNextLine()) {
                 Ingredient iterIngredient = IngredientLogic.returnIngredient(scanner.nextLine());
@@ -30,7 +30,7 @@ public class PantryLogic {
     }
 
     private static Pantry createShoppingList(Pantry toUpdate, Pantry recipe) {
-        Pantry shoppingList = new Pantry(recipe.getName() + Date.from(Instant.now()));
+        Pantry shoppingList = new Pantry();
         recipe.getInventory().forEach(
                 (recipeIngredientKey, recipeIngredient) ->
                 {
@@ -64,7 +64,7 @@ public class PantryLogic {
     public static void addRecipeIfPossibleCreateShoppingListIfNot(Pantry toUpdate, Pantry recipe) {
         if (!checkRecipeAgainstPantry(toUpdate, recipe)) {
             Pantry shoppingList = createShoppingList(toUpdate, recipe);
-            WriteFile.writeShoppingListToCSV(shoppingList.toString(), shoppingList.getName());
+            WriteFile.writeShoppingListToCSV(shoppingList.toString(), "ShoppingList_From_" + Instant.now().toString());
         } else {
             subtractRecipeFromPantry(toUpdate, recipe);
         }

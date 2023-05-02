@@ -8,11 +8,9 @@ import java.util.Iterator;
 
 public class Pantry {
     private HashMap<String, Ingredient> inventory;
-    private String name;
 
-    public Pantry(String name) {
+    public Pantry() {
         this.inventory = new HashMap<String, Ingredient>();
-        this.name = name;
     }
 
     public HashMap<String, Ingredient> getInventory() {
@@ -42,13 +40,6 @@ public class Pantry {
         return this.inventory.get(ingredientKey);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
     @Override
     public String toString() {
         Iterator<Ingredient> ingredientIterator = this.inventory.values().iterator();
