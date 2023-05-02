@@ -61,14 +61,10 @@ public class PantryLogic {
         );
     }
 
-    public static void addRecipeIfPossibleCreateShoppingListIfNot(Pantry toUpdate, Pantry recipe) {
-        if (!checkRecipeAgainstPantry(toUpdate, recipe)) {
-            Pantry shoppingList = createShoppingList(toUpdate, recipe);
+    public static void saveShoppingListAsAFile(Pantry shoppingList) {
             WriteFile.writeShoppingListToCSV(shoppingList.toString(), "ShoppingList_From_" + Instant.now().toString());
-        } else {
-            subtractRecipeFromPantry(toUpdate, recipe);
         }
-    }
+
 
         public static void addShopping (Pantry toUpdate, Pantry entries){
             entries.getInventory().forEach(
