@@ -12,14 +12,13 @@ public class Ingredient {
 
 
 //Constructor:
-    public Ingredient(String name, String unit, BigDecimal amount) throws IllegalArgumentException{
+    public Ingredient(String name, String unit, BigDecimal amount) throws IllegalArgumentException {
         this.name = name;
         this.unit = unit;
         if (amount.compareTo(BigDecimal.valueOf(0))>=0) {
             this.amount = amount;
         } else {
-            Logger.logNow("Input amount cannot be a negative number");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Input amount cannot be a negative number");
         }
     }
 //Getters and Setters:
