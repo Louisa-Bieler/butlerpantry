@@ -1,17 +1,15 @@
-package com.louisa.butlerpantry;
+package com.butlerpantry.main;
 
-import com.louisa.logging.Logger;
+import com.butlerpantry.logging.Logger;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static com.louisa.butlerpantry.UnitConversion.*;
+import static com.butlerpantry.main.UnitConversion.*;
 
 public class IngredientLogic {
 
     public static Ingredient returnIngredient(String record) {
-
-        try {
             String[] recordFields = record.split(",");
             String[] conversionUnits = unitConversion(record);
             String name = recordFields[0];
@@ -25,11 +23,5 @@ public class IngredientLogic {
                 amount = BigDecimal.valueOf(Double.parseDouble(recordFields[2]) * Double.parseDouble(conversionUnits[1])).setScale(3, RoundingMode.HALF_UP);
             }
             return new Ingredient(name, unit, amount);
-        } catch (IllegalArgumentException wrongNumber) {
-
-            throw wrongNumber;
-        } catch (Exception e) {
-            throw e;
-        }
     }
 }

@@ -1,35 +1,36 @@
-package com.louisa.butlerpantry;
+package com.butlerpantry.main;
 
-import com.louisa.logging.Logger;
+import com.butlerpantry.logging.Logger;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.Instant;
-import java.util.Date;
 import java.util.Scanner;
 
 public class PantryLogic {
 
-    public static Pantry producePantryFromFile(File defaultPantryFile) throws IOException {
+    public static Pantry producePantryFromFile(File defaultPantryFile) throws Exception {
         Pantry newPantry = new Pantry();
         try (Scanner scanner = new Scanner(defaultPantryFile).useDelimiter(",")) {
             while (scanner.hasNextLine()) {
                 Ingredient iterIngredient = IngredientLogic.returnIngredient(scanner.nextLine());
+                IngredientValidationLogic.ingredientNameValidator(iterIngredient.getName());
+                IngredientValidationLogic.ingredientUnitValidator(iterIngredient.getUnit());
+                IngredientValidationLogic.ingredientAmountValidator(iterIngredient.getAmount());
                 newPantry.setIngredientFromIngredient(iterIngredient);
-
             }
             return newPantry;
-        } catch (IOException e) {
+        } catch (Exception e) {
             Logger.logLater(e.getMessage());
-            throw new IOException(e);
+            throw e;
         }
     }
 
-    private static boolean checkRecipeAgainstPantry(Pantry toUpdate, Pantry recipe) {
-        return (toUpdate.getInventory().keySet().containsAll(recipe.getInventory().keySet()));
+    public static boolean checkRecipeAgainstPantry(Pantry toUpdate, Pantry recipe){
+        boolean weHaveAllTheIngredients = toUpdate.getInventory().keySet().containsAll(recipe.getInventory().keySet());
+        return weHaveAllTheIngredients;
     }
 
-    private static Pantry createShoppingList(Pantry toUpdate, Pantry recipe) {
+    public static Pantry createShoppingList(Pantry toUpdate, Pantry recipe) {
         Pantry shoppingList = new Pantry();
         recipe.getInventory().forEach(
                 (recipeIngredientKey, recipeIngredient) ->
@@ -48,7 +49,7 @@ public class PantryLogic {
         return shoppingList;
     }
 
-    private static void subtractRecipeFromPantry(Pantry toUpdate, Pantry recipe) {
+    public static void subtractRecipeFromPantry(Pantry toUpdate, Pantry recipe) {
         recipe.getInventory().forEach(
                 (recipeIngredientKey, recipeIngredient) ->
                 {

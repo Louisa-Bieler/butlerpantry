@@ -1,9 +1,6 @@
-package com.louisa.logging;
-import javax.print.attribute.standard.DateTimeAtCreation;
+package com.butlerpantry.logging;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
 import java.time.Instant;
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.louisa.butlerpantry;
+package com.butlerpantry.main;
 
-import com.louisa.logging.Logger;
+import com.butlerpantry.logging.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class UnitConversion {
 
     private static HashMap<String, String[]> unitConversionMapping = new HashMap<>();
+
     public static void addUnitConversionMapping(String fileName) throws IOException {
         File conversions = ReadFile.readFile(String.valueOf(fileName));
         try (Scanner scanner = new Scanner(conversions).useDelimiter("\n")) {

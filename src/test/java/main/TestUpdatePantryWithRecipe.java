@@ -1,18 +1,20 @@
-package com.louisa.butlerpantry;
+package main;
 
-import com.louisa.logging.Logger;
+import com.butlerpantry.main.Pantry;
+import com.butlerpantry.main.PantryLogic;
+import com.butlerpantry.main.ReadFile;
+import com.butlerpantry.main.UnitConversion;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
 
-import static com.louisa.butlerpantry.ReadFile.readFile;
-
-public class Main {
+public class TestUpdatePantryWithRecipe {
 
 
-    public static void main(String[] args) throws IOException {
-
+    @Test
+    public void testUpdatePantryWithRecipe() throws Exception {
+        //filePaths to .csv files used for data persistence
         String defaultPantryFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/myPantry.csv";
         String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/shoppingList.csv";
         String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/unitConversions.csv";
@@ -24,21 +26,12 @@ public class Main {
         UnitConversion.addUnitConversionMapping(unitConversionsFilePath);
         File recipeFile = ReadFile.readFile(recipeFilePath);
 
+        //Pantry Objects for Test
+        Pantry myPantry = PantryLogic.producePantryFromFile(testFile);
+        Pantry recipe = PantryLogic.producePantryFromFile(recipeFile);
 
-
-
-
-
-
-
-
-
-
-
+        if (PantryLogic.checkRecipeAgainstPantry(myPantry, recipe)){
+            PantryLogic.subtractRecipeFromPantry(myPantry, recipe);
         }
-
-
-
     }
-
-
+}

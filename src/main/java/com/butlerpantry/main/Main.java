@@ -1,19 +1,13 @@
-package com.louisa.test;
-
-import com.louisa.butlerpantry.ReadFile;
-import com.louisa.butlerpantry.UnitConversion;
-import org.junit.jupiter.api.Test;
-
+package com.butlerpantry.main;
 
 import java.io.File;
 import java.io.IOException;
 
-public class TestUpdatePantryWithRecipe {
+public class Main {
 
 
-    @Test
-    public void testUpdatePantryWithRecipe() throws IOException {
-        //filePaths to .csv files used for data persistence
+    public static void main(String[] args) throws IOException {
+
         String defaultPantryFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/myPantry.csv";
         String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/shoppingList.csv";
         String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/unitConversions.csv";
@@ -28,5 +22,18 @@ public class TestUpdatePantryWithRecipe {
 
 
 
+
+
+
+
+
+
+
+
+        }
+
+
+
     }
-}
+
+

@@ -1,6 +1,6 @@
-package com.louisa.butlerpantry;
+package com.butlerpantry.main;
 
-import com.louisa.logging.Logger;
+import com.butlerpantry.logging.Logger;
 
 import java.io.File;
 import java.io.FileWriter;

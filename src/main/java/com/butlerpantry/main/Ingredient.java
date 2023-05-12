@@ -1,6 +1,4 @@
-package com.louisa.butlerpantry;
-
-import com.louisa.logging.Logger;
+package com.butlerpantry.main;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,8 +11,15 @@ public class Ingredient {
 
 //Constructor:
     public Ingredient(String name, String unit, BigDecimal amount) throws IllegalArgumentException {
-        this.name = name;
-        this.unit = unit;
+        if (name.isEmpty()){
+            throw new IllegalArgumentException("Ingredient name is blank. Check input!");
+        } else {
+            this.name = name;
+        } if (unit.isEmpty()){
+            throw new IllegalArgumentException("Ingredient unit is blank. Check input!");
+        } else {
+            this.unit = unit;
+        }
         if (amount.compareTo(BigDecimal.valueOf(0))>=0) {
             this.amount = amount;
         } else {
@@ -42,23 +47,19 @@ public class Ingredient {
         return this.amount;
     }
     public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public void addAmountFromShopping(BigDecimal amount) throws IllegalArgumentException {
         if (!(amount.compareTo(BigDecimal.valueOf(0)) <= 0)) {
-            this.amount = this.amount.add(amount).setScale(2, RoundingMode.HALF_UP);
+            this.amount = amount;
         } else {
-            throw new IllegalArgumentException("Input amount cannot be a negative number");
+            throw new IllegalArgumentException("Input to setAmount() cannot be a negative number");
         }
     }
 
-    public void subtractAmountFromRecipe(BigDecimal amount) throws IllegalArgumentException {
-        if (!(amount.compareTo(BigDecimal.valueOf(0)) <= 0)) {
-            this.amount = this.amount.subtract(amount).setScale(2, RoundingMode.HALF_UP);
-        } else {
-            throw new IllegalArgumentException("Input amount cannot be a negative number");
-        }
+    public void addAmountFromShopping(BigDecimal amount) {
+        this.amount = this.amount.add(amount).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    public void subtractAmountFromRecipe(BigDecimal amount) {
+        this.amount = this.amount.subtract(amount).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
