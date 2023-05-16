@@ -1,4 +1,4 @@
-package main;
+package com.butlerpantry.main;
 
 import com.butlerpantry.logging.Logger;
 import com.butlerpantry.main.Pantry;
@@ -50,6 +50,7 @@ class PantryLogicTest {
         });
         Logger.logNow(badDataException.getMessage());
     }
+
 
 
 

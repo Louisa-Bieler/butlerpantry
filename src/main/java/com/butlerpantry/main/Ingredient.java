@@ -10,21 +10,10 @@ public class Ingredient {
 
 
 //Constructor:
-    public Ingredient(String name, String unit, BigDecimal amount) throws IllegalArgumentException {
-        if (name.isEmpty()){
-            throw new IllegalArgumentException("Ingredient name is blank. Check input!");
-        } else {
+    public Ingredient(String name, String unit, BigDecimal amount) {
             this.name = name;
-        } if (unit.isEmpty()){
-            throw new IllegalArgumentException("Ingredient unit is blank. Check input!");
-        } else {
             this.unit = unit;
-        }
-        if (amount.compareTo(BigDecimal.valueOf(0))>=0) {
             this.amount = amount;
-        } else {
-            throw new IllegalArgumentException("Input amount cannot be a negative number");
-        }
     }
 //Getters and Setters:
     public String getName() {
@@ -47,12 +36,8 @@ public class Ingredient {
         return this.amount;
     }
     public void setAmount(BigDecimal amount) {
-        if (!(amount.compareTo(BigDecimal.valueOf(0)) <= 0)) {
             this.amount = amount;
-        } else {
-            throw new IllegalArgumentException("Input to setAmount() cannot be a negative number");
         }
-    }
 
     public void addAmountFromShopping(BigDecimal amount) {
         this.amount = this.amount.add(amount).setScale(2, RoundingMode.HALF_UP);

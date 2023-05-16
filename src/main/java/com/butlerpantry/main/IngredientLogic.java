@@ -17,10 +17,10 @@ public class IngredientLogic {
             BigDecimal amount;
             if (conversionUnits == null) {
                 unit = recordFields[1];
-                amount = BigDecimal.valueOf(Long.parseLong(recordFields[2]));
+                amount = BigDecimal.valueOf(Double.parseDouble(recordFields[2])).setScale(2, RoundingMode.HALF_UP);
             } else {
                 unit = conversionUnits[0];
-                amount = BigDecimal.valueOf(Double.parseDouble(recordFields[2]) * Double.parseDouble(conversionUnits[1])).setScale(3, RoundingMode.HALF_UP);
+                amount = BigDecimal.valueOf(Double.parseDouble(recordFields[2])).setScale(2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(Double.parseDouble(conversionUnits[1]))).setScale(2, RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
             }
             return new Ingredient(name, unit, amount);
     }

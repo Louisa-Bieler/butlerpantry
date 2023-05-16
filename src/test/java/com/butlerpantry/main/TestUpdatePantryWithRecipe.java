@@ -1,4 +1,4 @@
-package main;
+package com.butlerpantry.main;
 
 import com.butlerpantry.main.Pantry;
 import com.butlerpantry.main.PantryLogic;

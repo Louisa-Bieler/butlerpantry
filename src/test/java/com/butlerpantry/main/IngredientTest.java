@@ -1,4 +1,4 @@
-package main;
+package com.butlerpantry.main;
 
 import com.butlerpantry.logging.Logger;
 import com.butlerpantry.main.Ingredient;
@@ -61,6 +61,6 @@ class IngredientTest {
 
         @Test
         void testToString() {
-
+            Assertions.assertEquals("Flour,g,2000.00\n", testIngredient.toString());
         }
     }

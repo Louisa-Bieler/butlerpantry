@@ -1,4 +1,4 @@
-package main;
+package com.butlerpantry.main;
 
 
 import com.butlerpantry.main.Ingredient;
@@ -30,24 +30,6 @@ class IngredientLogicTest {
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
-
-    @Test
-    void testReturnIngredientNegativeAmount() {
-            IllegalArgumentException badAmountException = assertThrows(IllegalArgumentException.class, () -> {
-            Ingredient willNotCome = IngredientLogic.returnIngredient("Flour,g,-1000");
-        });
-        Logger.logNow(badAmountException.getMessage());
-    }
-
-    @Test
-    void testBadPathNoInput() {
-        Exception unknownException = assertThrows(Exception.class, () -> {
-            Ingredient failure = IngredientLogic.returnIngredient(",");
-        });
-        Logger.logNow(unknownException.getMessage() + "\n"  + unknownException.getClass());
-
-    }
-
     @Test
     void testBadPathNoStringsAndABigDecimal() {
         Exception unknownException = assertThrows(Exception.class, () -> {
@@ -55,6 +37,9 @@ class IngredientLogicTest {
         });
         Logger.logNow(unknownException.getMessage() + "\n"  + unknownException.getClass());
     }
+
+    @Test
+    void test
 
 
 }

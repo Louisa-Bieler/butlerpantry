@@ -1,4 +1,4 @@
-package main;
+package com.butlerpantry.main;
 
 import org.junit.jupiter.api.Test;
 
