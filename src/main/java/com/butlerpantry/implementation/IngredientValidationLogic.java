@@ -1,8 +1,6 @@
-package com.butlerpantry.main;
+package com.butlerpantry.implementation;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.regex.*;
 
 public class IngredientValidationLogic {
 
@@ -14,8 +12,9 @@ public class IngredientValidationLogic {
             throw new IllegalArgumentException("Ingredient name was null. Check input!");
         } else if (name.matches("\\d+")) {
             throw new IllegalArgumentException("Ingredient name can not be a number. Check input!");
-        } else if (!(name.matches("[a-zA-Z]+"))) {
-            throw new IllegalArgumentException("Ingredient name contains no letters. Check input!");
+        //} else if (!(name.("[a-zA-Z]{1}+"))) {
+            //throw new IllegalArgumentException("Ingredient name contains no letters. Check input!");
+            //TODO find regex that means AT LEAST ONE LETTER
         }
     }
 

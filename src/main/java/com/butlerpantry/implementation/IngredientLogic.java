@@ -1,11 +1,9 @@
-package com.butlerpantry.main;
-
-import com.butlerpantry.logging.Logger;
+package com.butlerpantry.implementation;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static com.butlerpantry.main.UnitConversion.*;
+import static com.butlerpantry.implementation.UnitConversion.*;
 
 public class IngredientLogic {
 

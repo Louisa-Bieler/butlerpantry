@@ -1,4 +1,4 @@
-package com.butlerpantry.main;
+package com.butlerpantry.implementation;
 
 import com.butlerpantry.logging.Logger;
 

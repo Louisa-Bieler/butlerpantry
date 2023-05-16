@@ -1,8 +1,6 @@
-package com.butlerpantry.main;
+package com.butlerpantry.implementation;
 
 
-import com.butlerpantry.main.Ingredient;
-import com.butlerpantry.main.IngredientLogic;
 import com.butlerpantry.logging.Logger;
 import org.junit.jupiter.api.Test;
 
@@ -30,16 +28,6 @@ class IngredientLogicTest {
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
-    @Test
-    void testBadPathNoStringsAndABigDecimal() {
-        Exception unknownException = assertThrows(Exception.class, () -> {
-            Ingredient failure = IngredientLogic.returnIngredient(",,3");
-        });
-        Logger.logNow(unknownException.getMessage() + "\n"  + unknownException.getClass());
-    }
-
-    @Test
-    void test
 
 
 }

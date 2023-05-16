@@ -18,7 +18,7 @@ public class Logger {
                 Logger.logLater(message);
             }}
             catch (Exception e){
-                System.out.println("Please run main with command line configuration of flag 'n' for a console log or 'l' for a log File");
+                System.out.println("Please run implementation with command line configuration of flag 'n' for a console log or 'l' for a log File");
             }
         }
 
