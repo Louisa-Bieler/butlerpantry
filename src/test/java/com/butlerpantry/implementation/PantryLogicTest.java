@@ -16,8 +16,8 @@ class PantryLogicTest {
     }
     //filePaths to .csv files used for data persistence
     String defaultPantryFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/src/test/resources/myPantry.csv";
-    String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/shoppingList.csv";
-    String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/unitConversions.csv";
+    String shoppingTripFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/output/shoppingList.csv";
+    String unitConversionsFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/input/unitConversions.csv";
     String recipeFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/src/test/resources/recipe.csv";
 
     String badFilePath = "/Users/louisa.bieler/IdeaProjects/butlerpantry/badPantry.csv";

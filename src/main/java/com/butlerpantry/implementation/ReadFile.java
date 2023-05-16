@@ -13,13 +13,14 @@ public class ReadFile {
     // give bad file
 
     public static File readFile(String fileName) throws IOException {
-        File myPantry = new File(fileName);
-        String logSuccess = "readFile Successful on " + new Date();
-        Logger.logNow(logSuccess);
-        return myPantry;
+            File myPantry = new File(fileName);
+            String logSuccess = "readFile Successful on " + new Date();
+            Logger.logNow(logSuccess);
+            return myPantry;
+            }
 
     }
-}
+
 
 
 
